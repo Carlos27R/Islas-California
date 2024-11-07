@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><i class='bx bx-home'></i></a>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="islas.html">Islas</a></li>
+            <li><a href="archipielago.html">Archipiélago</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="Follow-Me">
+            <a href="#">Follow</a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-tiktok'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </header>
+
+    <section class="gallery">
+        <div class="containerislands">
+            <div class="text-containerislands">
+                <h2>Islas de California</h2>
+                <div class="parrafo-galeria">
+                    <p>California alberga una variedad de islas hermosas, cada una con su propia biodiversidad y 
+                        características únicas.</p>
+                        <button class="mi-boton" onclick="desplazar()">Ver Islas</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-container" id="destino">
+            <i class='bx bx-search'></i>
+            <input type="text" id="searchInput" placeholder="Buscar islas...">
+        </div>
+        
+        <div class="image-galleryislands">
+            <div class="image-containerislands" data-name="Isla Santa Cruz">
+                <a href="informacion_isla.html?isla=Isla Santa Cruz">
+                    <img src="images/islasantacruz1.jpg" alt="Isla Santa Cruz">
+                    <p>Isla Santa Cruz</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla Anacapa">
+                <a href="informacion_isla.html?isla=Isla Anacapa">
+                    <img src="images/islaanacapa1.jpg" alt="Isla Anacapa">
+                    <p>Isla Anacapa</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla Santa Rosa">
+                <a href="informacion_isla.html?isla=Isla Santa Rosa">
+                    <img src="images/islarosa1.jpg" alt="Isla Santa Rosa">
+                    <p>Isla Santa Rosa</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla San Miguel">
+                <a href="informacion_isla.html?isla=Isla San Miguel">
+                    <img src="images/islamiguel1.jpg" alt="Isla San Miguel">
+                    <p>Isla San Miguel</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla Santa Barbara">
+                <a href="informacion_isla.html?isla=Isla Santa Bárbara">
+                    <img src="images/islabarbara1.jpg" alt="Isla Santa Bárbara">
+                    <p>Isla Santa Bárbara</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla Catalina">
+                <a href="informacion_isla.html?isla=Isla Catalina">
+                    <img src="images/islacatalina1.jpg" alt="Isla Catalina">
+                    <p>Isla Catalina</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla Clemente">
+                <a href="informacion_isla.html?isla=Isla Clemente">
+                    <img src="images/islaclemente1.jpg" alt="Isla Clemente">
+                    <p>Isla Clemente</p>
+                </a>
+            </div>
+            <div class="image-containerislands" data-name="Isla San Nicolas">
+                <a href="informacion_isla.html?isla=Isla San Nicolás">
+                    <img src="images/islanicolas1.jpg" alt="Isla San Nicolás">
+                    <p>Isla San Nicolás</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cultura de California. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const imageContainers = document.querySelectorAll('.image-containerislands');
+
+        // Mostrar todas las islas al cargar la página
+        imageContainers.forEach(container => {
+            container.style.display = 'block'; // Muestra todos los contenedores inicialmente
+            setTimeout(() => {
+                container.classList.add('show'); // Añade la clase para la animación
+            }, 10); // Retardo para permitir que el contenedor se muestre antes de aplicar la clase
+        });
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            imageContainers.forEach(container => {
+                const islandName = container.getAttribute('data-name').toLowerCase();
+                if (islandName.includes(searchTerm)) {
+                    // Muestra el contenedor si coincide
+                    container.style.display = 'block'; 
+                    // Añade la clase de animación solo al mostrar
+                    setTimeout(() => {
+                        container.classList.add('show'); // Añade la clase para la animación
+                    }, 10); // Retardo para permitir la animación
+                } else {
+                    // Elimina la clase de animación antes de ocultar
+                    container.classList.remove('show'); 
+                    // Oculta inmediatamente sin animación
+                    container.style.display = 'none'; 
+                }
+            });
+
+            // Cuando el término de búsqueda está vacío, se muestran todas las islas
+            if (searchTerm === '') {
+                imageContainers.forEach(container => {
+                    container.style.display = 'block'; // Muestra todos los contenedores
+                    // Elimina la clase de ocultar para activar la animación al mostrarlas
+                    container.classList.add('show'); // Asegúrate de añadir la clase de animación
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    function desplazar() {
+        const seccion = document.getElementById('destino');
+        const offset = 80; // Ajusta este valor para cambiar el desplazamiento
+        const seccionPos = seccion.getBoundingClientRect().top + window.scrollY; // Obtiene la posición de la sección
+        window.scrollTo({
+            top: seccionPos - offset, // Resta el offset para no llegar tan arriba
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+<script>
+document.querySelectorAll('.image-containerislands').forEach(isla => {
+    // Definir conjuntos de imágenes para cada isla
+    const imagenesPorIsla = {
+        'Isla Santa Cruz': [
+            'images/islasantacruz1.jpg',
+            'images/islasantacruz2.jpg'
+        ],
+        'Isla Anacapa': [
+            'images/islaanacapa1.jpg',
+            'images/islaanacapa2.jpg',
+            'images/islaanacapa3.jpg'
+        ],
+        'Isla Santa Rosa': [
+            'images/islarosa1.jpg',
+            'images/islarosa2.jpg',
+        ],
+        'Isla San Miguel': [
+            'images/islamiguel1.jpg',
+            'images/islamiguel2.jpg',
+            'images/islamiguel3.jpg'
+        ],
+        'Isla Santa Barbara': [
+            'images/islabarbara1.jpg',
+            'images/islabarbara2.jpg'
+        ],
+        'Isla Catalina': [
+            'images/islacatalina1.jpg',
+            'images/islacatalina2.jpg'
+        ],
+        'Isla Clemente': [
+            'images/islaclemente1.jpg',
+            'images/islaclemente2.jpg',
+            'images/islaclemente3.jpg'
+        ],
+        'Isla San Nicolas': [
+            'images/islanicolas1.jpg',
+            'images/islanicolas2.jpg'
+        ]
+    };
+
+    let islaNombre = isla.getAttribute('data-name'); // Obtener el nombre de la isla del atributo data
+    let images = imagenesPorIsla[islaNombre];  // Obtener el array de imágenes correspondiente
+
+    let imgElement = isla.querySelector('img');  // Selecciona la imagen de la isla
+    let index = 0;
+    let interval;
+
+    // Evento cuando se coloca el mouse sobre la isla
+    isla.addEventListener('mouseenter', () => {
+        interval = setInterval(() => {
+            imgElement.classList.add('fade-out');
+            setTimeout(() => {
+                index = (index + 1) % images.length;  // Cambia la imagen cíclicamente
+                imgElement.src = images[index];  // Cambiar la fuente de la imagen
+                imgElement.classList.remove('fade-out');
+            }, 300);  // Tiempo de la transición
+        }, 1000);  // Cambia la imagen cada 1 segundo
+    });
+
+    // Evento cuando el mouse sale de la isla
+    isla.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        imgElement.src = images[0];  // Volver a la imagen original
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Island Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class='bx bx-home'></i></a>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="islas.html">Islas</a></li>
+            <li><a href="archipielago.html">Archipiélago</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="Follow-Me">
+            <a href="#">Follow</a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-tiktok'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </header>
+
+    <section class="Home">
+        <div class="home-text">
+            <h1>Islas Hermosas</h1>
+            <h5><strong>Islas De California</strong></h5>
+            <p>
+                California tiene muchas bellezas naturales, incluidos los canales de Nápoles. Una isla es una superficie terrestre formada naturalmente,
+                rodeado de agua y sobre la superficie del agua durante la marea alta.
+            </p>
+            <a class="btn" onclick="scrollToSection(event, 'explore')">Exploremos</a>
+        </div>
+    </section>
+
+    <section class="Inicio-Galeria" id="explore">
+        <div class="Inicio-Galeria-Card">
+            <div class="card-details">
+              <p class="text-title">¡Descubre más sobre estas maravillas naturales y sumérgete en su belleza!</p>
+              <p class="text-body"><br><br>Haz clic en el botón a continuación para conocer mas sobre las islas de california.</p>
+            </div>
+            <button class="btn-Galeria" onclick="redirectToGaleria()">Ver Islas</button>
+          </div>
+    </section>
+
+    <section class="Inicio-Archipielago">
+        <div class="Inicio-Archipielago-Card">
+            <p class="Inicio-Archipielago1">Las Islas del Canal (Archipiélago del Norte) son un archipiélago de 
+                ocho islas situado en la Bahía de California Meridional, en el Océano Pacífico, frente a la costa 
+                de California.
+                <br><br>Haz clic en "Mas Informacion" si te interesa saber mas sobre este Archipielago</p>
+            <p class="Inicio-Archipielago2"><span><button class="btn-Archipielago" onclick="redirectToArchipielago()">Mas Informacion</button></span></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Islas Hermosas - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function scrollToSection(event, sectionId) {
+            event.preventDefault(); // Evita el comportamiento por defecto del enlace
+
+            const targetSection = document.getElementById(sectionId);
+            const offset = 100; // Cambia este valor según lo alto que quieras que se detenga el desplazamiento.
+            const sectionPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - offset;
+
+            const startPosition = window.pageYOffset;
+            const distance = sectionPosition - startPosition;
+            const duration = 750; // Duración de la transición en milisegundos (2000ms = 2 segundos)
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+
+                window.scrollTo(0, run);
+
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        function redirectToGaleria() {
+            window.location.href = 'cultura.html';
+        }
+
+        function redirectToArchipielago() {
+            window.location.href = 'archipielago.html';
+        }
+    </script>
+</body>
+</html>

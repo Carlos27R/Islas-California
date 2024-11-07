@@ -1,0 +1,42 @@
+[
+    {
+        "nombre": "Isla Santa Cruz",
+        "descripcion": "Descripción detallada de la Isla Santa Cruz...",
+        "imagen": "images/islasantacruz1.jpg"
+    },
+    {
+        "nombre": "Isla Anacapa",
+        "descripcion": "Descripción detallada de la Isla Anacapa...",
+        "imagen": "images/islaanacapa1.jpg"
+    },
+    {
+        "nombre": "Isla Santa Rosa",
+        "descripcion": "Descripción detallada de la Isla Santa Rosa...",
+        "imagen": "images/islarosa1.jpg"
+    },
+    {
+        "nombre": "Isla San Miguel",
+        "descripcion": "Descripción detallada de la Isla San Miguel...",
+        "imagen": "images/islamiguel1.jpg"
+    },
+    {
+        "nombre": "Isla Santa Bárbara",
+        "descripcion": "Descripción detallada de la Isla Santa Bárbara...",
+        "imagen": "images/islabarbara1.jpg"
+    },
+    {
+        "nombre": "Isla Catalina",
+        "descripcion": "Descripción detallada de la Isla Catalina...",
+        "imagen": "images/islacatalina1.jpg"
+    },
+    {
+        "nombre": "Isla Clemente",
+        "descripcion": "Descripción detallada de la Isla Clemente...",
+        "imagen": "images/islaclemente1.jpg"
+    },
+    {
+        "nombre": "Isla San Nicolás",
+        "descripcion": "Descripción detallada de la Isla San Nicolás...",
+        "imagen": "images/islanicolas1.jpg"
+    }
+]
